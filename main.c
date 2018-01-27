@@ -20,6 +20,9 @@
 
 #include "i2cbus-transmitter.h"
 
+
+int lcd_display_address_40h = 0b01000000;
+
 int main() {
 
   i2cbus_init();
@@ -27,9 +30,11 @@ int main() {
   while(1) {
 
     i2cbus_send_start_condition();
+    if(i2cbus_address_7_write(lcd_display_address_40h, 0) == 1) {
 
-    // …
+      // send some data
 
+    }
     i2cbus_send_stop_condition();
 
     //------- RESET--------
