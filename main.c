@@ -20,6 +20,8 @@
 
 #include "i2cbus-transmitter.h"
 
+#define DELAY_MS    _delay_ms
+#define SEND_BYTE   i2cbus_data_write
 
 #include "lcd-display.h"
 
