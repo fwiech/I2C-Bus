@@ -46,4 +46,24 @@ void i2cbus_send_stop_condition() {
 	SDA_HIGH_SCL_HIGH;
 }
 
+void i2c_bus_create_beat(int bit) {
+	if(bit == 1) {
+		SDA_HIGH_SCL_LOW;
+		DELAY;
+		SDA_HIGH_SCL_HIGH;
+		DELAY;
+		DELAY;
+		SDA_HIGH_SCL_LOW;
+		DELAY;
+	} else {
+		SDA_LOW_SCL_LOW;
+		DELAY;
+		SDA_LOW_SCL_HIGH;
+		DELAY;
+		DELAY;
+		SDA_LOW_SCL_LOW;
+		DELAY;
+	}
+}
+
 #endif
