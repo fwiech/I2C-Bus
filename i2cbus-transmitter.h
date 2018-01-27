@@ -93,4 +93,9 @@ int i2cbus_data_write(int data) {
 	return i2cbus_receive_ack();
 }
 
+int i2cbus_address_7_write(unsigned int address, int read_write) {
+	address = address | (read_write << 0);
+	return i2cbus_data_write(address);
+}
+
 #endif
