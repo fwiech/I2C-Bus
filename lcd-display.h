@@ -94,4 +94,10 @@ void lcd_display_write_second_row(char text[]) {
   lcd_display_write_row(text, 2);
 }
 
+
+void lcd_display_cursor_home() {
+	lcd_display_write(0b0000, 0);
+	lcd_display_write(0b0010, 0);
+}
+
 #endif
