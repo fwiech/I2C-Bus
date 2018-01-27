@@ -68,7 +68,7 @@ void i2c_bus_create_beat(int bit) {
 
 int i2cbus_receive_ack() {
 	int ack = 0;
-  
+
 	PULLUP_ON;
 	DELAY;
 	SCL_HIGH;
@@ -82,6 +82,15 @@ int i2cbus_receive_ack() {
 	PULLUP_OFF;
 
 	return ack;
+}
+
+int i2cbus_data_write(int data) {
+	int index;
+	for(index = 7; index >= 0; index--) {
+        int thebit = (data & (1 << index)) >> index;
+		i2c_bus_create_beat(thebit);
+	}
+	return i2cbus_receive_ack();
 }
 
 #endif
