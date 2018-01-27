@@ -21,6 +21,8 @@
 #include "i2cbus-transmitter.h"
 
 
+#include "lcd-display.h"
+
 int lcd_display_address_40h = 0b01000000;
 
 int main() {
