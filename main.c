@@ -36,7 +36,9 @@ int main() {
     i2cbus_send_start_condition();
     if(i2cbus_address_7_write(lcd_display_address_40h, 0) == 1) {
 
-      // send some data
+      lcd_display_init();
+      lcd_display_write_first_row("Embedded");
+      lcd_display_write_second_row("Networking");
 
     }
     i2cbus_send_stop_condition();
