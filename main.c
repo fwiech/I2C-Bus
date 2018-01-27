@@ -6,6 +6,8 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
+#include "i2cbus-transmitter.h"
+
 int main() {
 
   //…
