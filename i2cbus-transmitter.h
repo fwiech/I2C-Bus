@@ -66,4 +66,22 @@ void i2c_bus_create_beat(int bit) {
 	}
 }
 
+int i2cbus_receive_ack() {
+	int ack = 0;
+  
+	PULLUP_ON;
+	DELAY;
+	SCL_HIGH;
+	DELAY;
+	if(READ_SDA_VALUE == 0) {
+		ack = 1;
+	}
+	DELAY;
+	SCL_LOW;
+	DELAY;
+	PULLUP_OFF;
+
+	return ack;
+}
+
 #endif
