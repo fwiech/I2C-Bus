@@ -1,6 +1,14 @@
 #ifndef LCD_DISPLAY_H
 #define LCD_DISPLAY_H
 
+
+#ifndef DELAY_MS
+	#ifndef _UTIL_DELAY_H_
+		#include <util/delay.h>
+	#endif
+	#define DELAY_MS _delay_ms
+#endif
+
 // config vars
 int display_ligthning = 0;
 
