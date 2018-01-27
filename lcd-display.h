@@ -71,4 +71,27 @@ void lcd_display_send_character(char character, int row, int column) {
 
 }
 
+/**
+ * helper
+*/
+
+/**
+ * @function lcd_display_write_row
+ * @param text: max. 16 chracters
+ * @param row: 1 -> first row, 2 -> second row
+*/
+void lcd_display_write_row(char text[], int row) {
+  for (size_t index = 0; text[index] != '\0'; index++) {
+		lcd_display_send_character(text[index], row, index);
+	}
+}
+
+void lcd_display_write_first_row(char text[]) {
+  lcd_display_write_row(text, 1);
+}
+
+void lcd_display_write_second_row(char text[]) {
+  lcd_display_write_row(text, 2);
+}
+
 #endif
