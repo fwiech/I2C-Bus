@@ -22,7 +22,20 @@
 
 int main() {
 
-  //…
+  i2cbus_init();
+
+  while(1) {
+
+    i2cbus_send_start_condition();
+
+    // …
+
+    i2cbus_send_stop_condition();
+
+    //------- RESET--------
+		//SDA_HIGH_SCL_HIGH;
+		_delay_ms(2000);
+  }
 
   return 0;
 }

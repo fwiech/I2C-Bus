@@ -27,6 +27,23 @@
 	#define DELAY _delay_us(DELAY_TIME)
 #endif
 
-  //…
+void i2cbus_init() {
+  PULLUP_OFF;
+}
+
+void i2cbus_send_start_condition() {
+	SDA_LOW_SCL_HIGH;
+	DELAY;
+	SDA_LOW_SCL_LOW;
+	DELAY;
+}
+
+void i2cbus_send_stop_condition() {
+	SDA_LOW_SCL_LOW;
+	DELAY;
+	SDA_LOW_SCL_HIGH;
+	DELAY;
+	SDA_HIGH_SCL_HIGH;
+}
 
 #endif
