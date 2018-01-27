@@ -59,4 +59,16 @@ void lcd_display_init() {
 
 }
 
+void lcd_display_send_character(char character, int row, int column) {
+
+	// set DDRAM
+	lcd_display_write((row * 4) + 4, 0);
+	lcd_display_write(column, 0);
+
+	// set CG RAM
+	lcd_display_write(((int)character >> 4), 1);
+	lcd_display_write(((int)character & 0x0F), 1);
+
+}
+
 #endif
