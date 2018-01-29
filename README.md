@@ -55,3 +55,7 @@ In general, contributors should develop on branches based off of `master` and pu
 ## Team
 * [Florian Wiech](https://github.com/florianwiech)
 * [Thomas Niestroj](https://github.com/Manorka)
+
+## Copyright and License
+[MIT License](LICENSE)<br>
+Please consider the I2C-Bus License by using the code.
