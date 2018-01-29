@@ -57,5 +57,5 @@ In general, contributors should develop on branches based off of `master` and pu
 * [Thomas Niestroj](https://github.com/Manorka)
 
 ## Copyright and License
-[MIT License](LICENSE)<br>
+[MIT License](LICENSE.md)<br>
 Please consider the I2C-Bus License by using the code.
