@@ -11,27 +11,27 @@ Two use the libraries you have to create these constants before the `include` co
 
 ### I2C-Bus
 ```c
-#define SDA_HIGH	// set SDA line to high
-#define SDA_LOW	 // set SDA line to low
+#define SDA_HIGH		// set SDA line to high
+#define SDA_LOW			// set SDA line to low
 
-#define SCL_HIGH	// set SCL line to high
-#define SCL_LOW	 // set SCL line to low
+#define SCL_HIGH		// set SCL line to high
+#define SCL_LOW			// set SCL line to low
 
-#define PULLUP_ON   // set SDA line to input
-#define PULLUP_OFF  // set both SDA & SCL to output (important to set both!)
+#define PULLUP_ON		// set SDA line to input
+#define PULLUP_OFF	// set both SDA & SCL to output (important to set both!)
 
-#define DELAY       // name of the delay function:
-                    // the DELAY constant is optional, if you want to use the <util/delay> library.
+#define DELAY				// name of the delay function:
+										// the DELAY constant is optional, if you want to use the <util/delay> library.
 ```
 
 ### LCD-Display
 ```c
-#define SEND_BYTE   // name of the send function:
-                    //		@param Integer address (8-Bit)
-                    //		@return Integer (1 -> ack, 0 -> transfer fails)
+#define SEND_BYTE		// name of the send function:
+										//		@param Integer address (8-Bit)
+										//		@return Integer (1 -> ack, 0 -> transfer fails)
 
-#define DELAY_MS	// name of the delay function:
-                    // the DELAY constant is optional, if you want to use the <util/delay> library.
+#define DELAY_MS		// name of the delay function:
+										// the DELAY constant is optional, if you want to use the <util/delay> library.
 ```
 
 ### Hardware
