@@ -34,72 +34,11 @@
 // config vars
 int display_ligthning = 0;
 
-void lcd_display_write(int data_4bit, int register_select) {
+void lcd_display_write(int, int);
 
-	// position data for transfer
-	//			    ligthning,					       write,		  register_select,		     data-bits
-	int data = (display_ligthning << 7) | (0 << 5) | (register_select << 4) | (data_4bit & 0x0F);
+void lcd_display_init();
 
-	SEND_BYTE(data | (1 << 6));
-	SEND_BYTE(data);
-}
-
-void lcd_display_init() {
-
-	// wait at least 15ms
-	DELAY_MS(15);
-
-	// interface set to 8-Bit
-	lcd_display_write(0b0011, 0);
-
-	// wait at least 4,1ms
-	DELAY_MS(5);
-
-	// interface set to 8-Bit
-	lcd_display_write(0b0011, 0);
-
-	// wait at least 110us
-	DELAY_MS(1);
-
-	// interface set to 8-Bit
-	lcd_display_write(0b0011, 0);
-
-	// interface set to 4-Bit
-	lcd_display_write(0b0010, 0);
-
-	// 2 doublesaced with 5x8 matrix
-	lcd_display_write(0b0010, 0);
-	lcd_display_write(0b1000, 0);
-
-	// display off
-	lcd_display_write(0b0000, 0);
-	lcd_display_write(0b1000, 0);
-
-	// delete display
-	lcd_display_write(0b0000, 0);
-	lcd_display_write(0b0001, 0);
-
-	// cursor to the right, no display shift
-	lcd_display_write(0b0000, 0);
-	lcd_display_write(0b0010, 0);
-
-	// display on
-	lcd_display_write(0b0000, 0);
-	lcd_display_write(0b1111, 0);
-
-}
-
-void lcd_display_send_character(char character, int row, int column) {
-
-	// set DDRAM
-	lcd_display_write((row * 4) + 4, 0);
-	lcd_display_write(column, 0);
-
-	// set CG RAM
-	lcd_display_write(((int)character >> 4), 1);
-	lcd_display_write(((int)character & 0x0F), 1);
-
-}
+void lcd_display_send_character(char, int, int);
 
 /**
  * helper
@@ -110,24 +49,11 @@ void lcd_display_send_character(char character, int row, int column) {
  * @param text: max. 16 chracters
  * @param row: 1 -> first row, 2 -> second row
 */
-void lcd_display_write_row(char text[], int row) {
-  for (size_t index = 0; text[index] != '\0'; index++) {
-		lcd_display_send_character(text[index], row, index);
-	}
-}
+void lcd_display_write_row(char[], int);
 
-void lcd_display_write_first_row(char text[]) {
-  lcd_display_write_row(text, 1);
-}
+void lcd_display_write_first_row(char[]);
+void lcd_display_write_second_row(char[]);
 
-void lcd_display_write_second_row(char text[]) {
-  lcd_display_write_row(text, 2);
-}
-
-
-void lcd_display_cursor_home() {
-	lcd_display_write(0b0000, 0);
-	lcd_display_write(0b0010, 0);
-}
+void lcd_display_cursor_home();
 
 #endif
