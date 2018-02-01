@@ -14,7 +14,7 @@
 	> NXP <https://www.nxp.com/docs/en/user-guide/UM10204.pdf>
 
 	Requirements:
-	To use this library you have to define the following functions:
+	To use this library you have to implement the following functions:
 
 	> setSDA_HIGH()		// set SDA line to high
 	> setSDA_LOW()		// set SDA line to low
@@ -27,8 +27,8 @@
 
 	> getSDAValue()		// returns current value on SDA line
 
-	> DELAY			// name of the delay function:
-				// the DELAY constant is optional, if you want to use the <util/delay> library.
+	> void i2cbus_delay_us(int)	// call a delay function
+				//	@param Integer delaytime in ms
 */
 
 void setSDA_HIGH();
@@ -37,7 +37,7 @@ void setSCL_HIGH();
 void setSCL_LOW();
 void setPULLUP(bool);
 bool getSDAValue();
-
+void i2cbus_delay_us(int);
 
 #define SDA_HIGH    setSDA_HIGH()
 #define SDA_LOW     setSDA_LOW()
@@ -68,14 +68,10 @@ bool getSDAValue();
 #endif
 
 #ifndef DELAY
-	#ifndef _UTIL_DELAY_H_
-		#define F_CPU 1000000UL
-		#include <util/delay.h>
-	#endif
 	#ifndef DELAY_TIME
 		#define DELAY_TIME 200
 	#endif
-	#define DELAY _delay_us(DELAY_TIME)
+	#define DELAY i2cbus_delay_us(DELAY_TIME)
 #endif
 
 void i2cbus_init();

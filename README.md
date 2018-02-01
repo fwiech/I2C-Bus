@@ -23,9 +23,8 @@ void setPULLUP(false);	// set both SDA & SCL to output (important to set both!)
 
 bool getSDAValue();	// returns current value on SDA line
 
-#define DELAY		// name of the delay function:
-			// the DELAY constant is optional, if you want to use the <util/delay> library.
-
+void i2cbus_delay_us(int);	// call a delay function
+			//	@param Integer delay-time in ms
 ```
 
 ### LCD-Display

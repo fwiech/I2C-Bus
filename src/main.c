@@ -21,12 +21,12 @@ int main() {
 
     i2cbus_send_start_condition();
     if(i2cbus_address_7_write(lcd_display_address_40h, 0) == true) {
+  		if(lcd_display_init() == true) {
 
-      if(lcd_display_init() == true) {
-				lcd_display_write_first_row("Embedded");
-	      lcd_display_write_second_row("Networking");
-			}
-      
+  			lcd_display_write_first_row("Embedded");
+  	    lcd_display_write_second_row("Networking");
+
+  		}
     }
     i2cbus_send_stop_condition();
 
@@ -68,6 +68,10 @@ void setPULLUP(bool on) {
 
 bool getSDAValue() {
 	return ((PINB >> 1) && (1<<0));
+}
+
+void i2cbus_delay_us(int us) {
+  _delay_us(us);
 }
 
 
