@@ -28,7 +28,7 @@
 	> getSDAValue()		// returns current value on SDA line
 
 	> void i2cbus_delay_us(int)	// call a delay function
-				//	@param Integer delaytime in ms
+					//	@param Integer delaytime in ms
 */
 
 void setSDA_HIGH();
