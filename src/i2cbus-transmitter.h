@@ -10,6 +10,9 @@
 		> Florian Wiech		<https://github.com/florianwiech>
 		> Thomas Niestroj	<https://github.com/Manorka>
 
+	official specification:
+	> NXP <https://www.nxp.com/docs/en/user-guide/UM10204.pdf>
+
 	Requirements:
 	To use this library you have to define the following functions:
 
