@@ -9,10 +9,6 @@
 
 
 #include "i2cbus-transmitter.h"
-
-#define DELAY_MS    _delay_ms
-#define SEND_BYTE   i2cbus_data_write
-
 #include "lcd-display.h"
 
 int lcd_display_address_40h = 0b01000000;
@@ -26,10 +22,11 @@ int main() {
     i2cbus_send_start_condition();
     if(i2cbus_address_7_write(lcd_display_address_40h, 0) == true) {
 
-      lcd_display_init();
-      lcd_display_write_first_row("Embedded");
-      lcd_display_write_second_row("Networking");
-
+      if(lcd_display_init() == true) {
+				lcd_display_write_first_row("Embedded");
+	      lcd_display_write_second_row("Networking");
+			}
+      
     }
     i2cbus_send_stop_condition();
 
@@ -71,4 +68,13 @@ void setPULLUP(bool on) {
 
 bool getSDAValue() {
 	return ((PINB >> 1) && (1<<0));
+}
+
+
+/**
+  * lcd display helper
+*/
+
+bool lcd_display_send_byte(int byte) {
+	return i2cbus_data_write(byte);
 }
