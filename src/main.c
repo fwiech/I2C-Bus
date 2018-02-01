@@ -5,18 +5,8 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+#include <stdbool.h>
 
-
-#define SDA_HIGH    PORTB |= 0b00000010
-#define SDA_LOW     PORTB &= 0b11111101
-
-#define SCL_HIGH    PORTB |= 0b00000001
-#define SCL_LOW     PORTB &= 0b11111110
-
-#define PULLUP_ON   DDRB &=0b11111101
-#define PULLUP_OFF	DDRB |=0b00000011
-
-#define READ_SDA_VALUE  (PORTB & (1 << 1)) >> 1
 
 #include "i2cbus-transmitter.h"
 
@@ -34,7 +24,7 @@ int main() {
   while(1) {
 
     i2cbus_send_start_condition();
-    if(i2cbus_address_7_write(lcd_display_address_40h, 0) == 1) {
+    if(i2cbus_address_7_write(lcd_display_address_40h, 0) == true) {
 
       lcd_display_init();
       lcd_display_write_first_row("Embedded");
@@ -49,4 +39,36 @@ int main() {
   }
 
   return 0;
+}
+
+/**
+ * i2cbus helper
+*/
+
+void setSDA_HIGH() {
+	PORTB |= 0b00000010;
+}
+
+void setSDA_LOW() {
+	PORTB &= 0b11111101;
+}
+
+void setSCL_HIGH() {
+	PORTB |= 0b00000001;
+}
+
+void setSCL_LOW() {
+	PORTB &= 0b11111110;
+}
+
+void setPULLUP(bool on) {
+	if(on == true) { // on
+		DDRB &=0b11111101;
+	} else { // off
+		DDRB |=0b00000011;
+	}
+}
+
+bool getSDAValue() {
+	return ((PINB >> 1) && (1<<0));
 }

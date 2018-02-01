@@ -19,7 +19,7 @@ void i2cbus_send_stop_condition() {
 	SDA_HIGH_SCL_HIGH;
 }
 
-int i2cbus_data_write(int data) {
+bool i2cbus_data_write(int data) {
 	int index;
 	for(index = 7; index >= 0; index--) {
         int thebit = (data & (1 << index)) >> index;
@@ -28,7 +28,7 @@ int i2cbus_data_write(int data) {
 	return i2cbus_receive_ack();
 }
 
-int i2cbus_address_7_write(unsigned int address, int read_write) {
+bool i2cbus_address_7_write(unsigned int address, int read_write) {
 	address = address | (read_write << 0);
 	return i2cbus_data_write(address);
 }
@@ -36,16 +36,16 @@ int i2cbus_address_7_write(unsigned int address, int read_write) {
 /**
  * ACK
 */
-int i2cbus_receive_ack() {
-	int ack = 0;
+bool i2cbus_receive_ack() {
+	bool ack = false;
 
 	PULLUP_ON;
 	DELAY;
 	SCL_HIGH;
 	DELAY;
-	if(READ_SDA_VALUE == 0) {
-		ack = 1;
-	}
+
+	ack = READ_SDA_VALUE;
+
 	DELAY;
 	SCL_LOW;
 	DELAY;
