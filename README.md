@@ -12,27 +12,27 @@ Two use the libraries you have to create/implement the following constants/funct
 
 ### I2C-Bus
 ```c
-void setSDA_HIGH()		// set SDA line to high
-void setSDA_LOW()		// set SDA line to low
+void setSDA_HIGH()	// set SDA line to high
+void setSDA_LOW()	// set SDA line to low
 
-void setSCL_HIGH()		// set SCL line to high
-void setSCL_LOW()		// set SCL line to low
+void setSCL_HIGH()	// set SCL line to high
+void setSCL_LOW()	// set SCL line to low
 
 void setPULLUP(true)	// set SDA line to input
 void setPULLUP(false)	// set both SDA & SCL to output (important to set both!)
 
-bool getSDAValue()		// returns current value on SDA line
+bool getSDAValue()	// returns current value on SDA line
 
-#define DELAY			// name of the delay function:
-				// the DELAY constant is optional, if you want to use the <util/delay> library.
+#define DELAY		// name of the delay function:
+			// the DELAY constant is optional, if you want to use the <util/delay> library.
 
 ```
 
 ### LCD-Display
 ```c
 bool lcd_display_send_byte(int)	// call the transmitter function in here
-			//		@param Integer address (8-Bit)
-			//		@return Integer (1 -> ack, 0 -> transfer fails)
+				//	@param Integer address (8-Bit)
+				//	@return Integer (1 -> ack, 0 -> transfer fails)
 
 #define DELAY_MS	// name of the delay function:
 			// the DELAY constant is optional, if you want to use the <util/delay> library.
