@@ -18,11 +18,11 @@
 	To use this library you have to define the following functions/constants:
 
 	> lcd_display_send_byte(int)	// name of the send function
-									//		@param Integer address (8-Bit)
-									//		@return Boolean (1 -> ack, 0 -> transfer fails)
+					//	@param Integer address (8-Bit)
+					//	@return Boolean (1 -> ack, 0 -> transfer fails)
 
-	> DELAY_MS		// name of the delay function
-					// the DELAY constant is optional, if you want to use the <util/delay> library.
+	> DELAY_MS	// name of the delay function
+			// the DELAY constant is optional, if you want to use the <util/delay> library.
 */
 
 bool lcd_display_send_byte(int);
