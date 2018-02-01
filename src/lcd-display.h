@@ -21,7 +21,7 @@
 					//	@param Integer address (8-Bit)
 					//	@return Boolean (1 -> ack, 0 -> transfer fails)
 
-	> lcd_display_delay_ms(int)   // call a delay function
+	> lcd_display_delay_ms(int)   	// call a delay function
 					//	@param Integer delaytime in ms
 
 */
