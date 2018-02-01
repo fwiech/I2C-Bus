@@ -15,23 +15,22 @@
       		Specification: http://www.sprut.de/electronic/lcd/
 
 	Requirements:
-	To use this library you have to define the following functions/constants:
+	To use this library you have to implement the following functions:
 
 	> lcd_display_send_byte(int)	// call the transmitter function in here
 					//	@param Integer address (8-Bit)
 					//	@return Boolean (1 -> ack, 0 -> transfer fails)
 
-	> DELAY_MS	// name of the delay function
-			// the DELAY constant is optional, if you want to use the <util/delay> library.
+	> lcd_display_delay_ms(int)   // call a delay function
+					//	@param Integer delaytime in ms
+
 */
 
 bool lcd_display_send_byte(int);
+void lcd_display_delay_ms(int);
 
 #ifndef DELAY_MS
-	#ifndef _UTIL_DELAY_H_
-		#include <util/delay.h>
-	#endif
-	#define DELAY_MS _delay_ms
+	#define DELAY_MS lcd_display_delay_ms
 #endif
 
 // config vars

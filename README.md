@@ -33,8 +33,8 @@ bool lcd_display_send_byte(int);	// call the transmitter function in here
 				//	@param Integer address (8-Bit)
 				//	@return Integer (1 -> ack, 0 -> transfer fails)
 
-#define DELAY_MS	// name of the delay function:
-			// the DELAY constant is optional, if you want to use the <util/delay> library.
+void lcd_display_delay_ms(int);	// call a delay function
+			//	@param Integer delaytime in ms
 ```
 
 ### Hardware

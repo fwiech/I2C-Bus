@@ -82,3 +82,7 @@ void i2cbus_delay_us(int us) {
 bool lcd_display_send_byte(int byte) {
 	return i2cbus_data_write(byte);
 }
+
+void lcd_display_delay_ms(int ms) {
+  _delay_ms(ms);
+}
