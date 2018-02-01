@@ -25,6 +25,8 @@
 	> setPULLUP(true)	// set SDA line to input
 	> setPULLUP(false)	// set both SDA & SCL to output (important to set both!)
 
+	> getSDAValue()		// returns current value on SDA line
+
 	> DELAY			// name of the delay function:
 				// the DELAY constant is optional, if you want to use the <util/delay> library.
 */

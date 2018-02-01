@@ -17,7 +17,7 @@
 	Requirements:
 	To use this library you have to define the following functions/constants:
 
-	> lcd_display_send_byte(int)	// name of the send function
+	> lcd_display_send_byte(int)	// call the transmitter function in here
 					//	@param Integer address (8-Bit)
 					//	@return Boolean (1 -> ack, 0 -> transfer fails)
 

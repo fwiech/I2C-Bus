@@ -7,26 +7,30 @@ The most significant features are that there are only two bus lines required. It
 Simplicity and flexibility are key characteristics that make this bus attractive to many applications.
 
 ## Getting Started
-Two use the libraries you have to create these constants before the `include` command in your code:
+Two use the libraries you have to create/implement the following constants/functions<br>
+(Declaration of the constants before the `include` lines):
 
 ### I2C-Bus
 ```c
-#define SDA_HIGH	// set SDA line to high
-#define SDA_LOW		// set SDA line to low
+void setSDA_HIGH()		// set SDA line to high
+void setSDA_LOW()		// set SDA line to low
 
-#define SCL_HIGH	// set SCL line to high
-#define SCL_LOW		// set SCL line to low
+void setSCL_HIGH()		// set SCL line to high
+void setSCL_LOW()		// set SCL line to low
 
-#define PULLUP_ON	// set SDA line to input
-#define PULLUP_OFF	// set both SDA & SCL to output (important to set both!)
+void setPULLUP(true)	// set SDA line to input
+void setPULLUP(false)	// set both SDA & SCL to output (important to set both!)
 
-#define DELAY		// name of the delay function:
-			// the DELAY constant is optional, if you want to use the <util/delay> library.
+bool getSDAValue()		// returns current value on SDA line
+
+#define DELAY			// name of the delay function:
+				// the DELAY constant is optional, if you want to use the <util/delay> library.
+
 ```
 
 ### LCD-Display
 ```c
-#define SEND_BYTE	// name of the send function:
+bool lcd_display_send_byte(int)	// call the transmitter function in here
 			//		@param Integer address (8-Bit)
 			//		@return Integer (1 -> ack, 0 -> transfer fails)
 
@@ -36,10 +40,10 @@ Two use the libraries you have to create these constants before the `include` co
 
 ### Hardware
 ![Hardware Setup](assets/hardware_complete.jpg)
-* mikrocontroller ATMEGA2560
-* development board: NTK600
-* lcd-display, type HD44780 (4-Bit-Mode)
-* oscilloscope
+* Mikrocontroller ATMEGA2560
+* Development Board: NTK600
+* LCD-Display, type HD44780 (4-Bit-Mode)
+* Oscilloscope
 
 ## Resources
 
@@ -57,5 +61,7 @@ In general, contributors should develop on branches based off of `master` and pu
 * [Thomas Niestroj](https://github.com/Manorka)
 
 ## Copyright and License
-[MIT License](LICENSE.md)<br>
-Please consider the I2C-Bus License by using the code.
+
+This project is under the MIT License. See the [MIT License](LICENSE.md) file for the full license text.
+<br>
+Please consider the I2C-Bus License.
