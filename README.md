@@ -24,17 +24,17 @@ void setPULLUP(false);	// set both SDA & SCL to output (important to set both!)
 bool getSDAValue();	// returns current value on SDA line
 
 void i2cbus_delay_us(int);	// call a delay function
-			//	@param Integer delay-time in ms
+				//	@param Integer delay-time in ms
 ```
 
 ### LCD-Display
 ```c
 bool lcd_display_send_byte(int);	// call the transmitter function in here
-				//	@param Integer address (8-Bit)
-				//	@return Integer (1 -> ack, 0 -> transfer fails)
+					//	@param Integer address (8-Bit)
+					//	@return Integer (1 -> ack, 0 -> transfer fails)
 
-void lcd_display_delay_ms(int);	// call a delay function
-			//	@param Integer delaytime in ms
+void lcd_display_delay_ms(int);		// call a delay function
+					//	@param Integer delaytime in ms
 ```
 
 ### Hardware
