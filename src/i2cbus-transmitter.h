@@ -22,11 +22,11 @@
 	> setSCL_HIGH()		// set SCL line to high
 	> setSCL_LOW()		// set SCL line to low
 
-	> setPULLUP(true)			// set SDA line to input
-	> setPULLUP(false)		// set both SDA & SCL to output (important to set both!)
+	> setPULLUP(true)	// set SDA line to input
+	> setPULLUP(false)	// set both SDA & SCL to output (important to set both!)
 
-	> DELAY				// name of the delay function:
-						// the DELAY constant is optional, if you want to use the <util/delay> library.
+	> DELAY			// name of the delay function:
+				// the DELAY constant is optional, if you want to use the <util/delay> library.
 */
 
 void setSDA_HIGH();
