@@ -34,7 +34,7 @@ void lcd_display_delay_ms(int);
 #endif
 
 // config vars
-int display_ligthning;
+int display_lighting;
 
 bool lcd_display_init();
 

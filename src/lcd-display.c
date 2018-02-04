@@ -5,7 +5,7 @@ bool lcd_display_write(int data_4bit, int register_select) {
 
 	// position data for transfer
 	//			    ligthning,					       write,		  register_select,		     data-bits
-	int data = (display_ligthning << 7) | (0 << 5) | (register_select << 4) | (data_4bit & 0x0F);
+	int data = (display_lighting << 7) | (0 << 5) | (register_select << 4) | (data_4bit & 0x0F);
 
   bool result = true;
 
@@ -20,7 +20,7 @@ bool lcd_display_write(int data_4bit, int register_select) {
 }
 
 bool lcd_display_init() {
-  display_ligthning = 0;
+  display_lighting = 0;
 
   // wait at least 15ms
 	DELAY_MS(15);
