@@ -1,7 +1,7 @@
 #include "i2cbus-transmitter.h"
 
 void i2cbus_init() {
-  PULLUP_OFF;
+	PULLUP_OFF;
 }
 
 void i2cbus_send_start_condition() {
