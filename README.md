@@ -7,21 +7,20 @@ The most significant features are that there are only two bus lines required. It
 Simplicity and flexibility are key characteristics that make this bus attractive to many applications.
 
 ## Getting Started
-Two use the libraries you have to create/implement the following constants/functions<br>
-(Declaration of the constants before the `include` lines):
+Two use the libraries you have to implement the following functions:
 
 ### I2C-Bus
 ```c
-void setSDA_HIGH();	// set SDA line to high
-void setSDA_LOW();	// set SDA line to low
+void setSDA_HIGH();		// set SDA line to high
+void setSDA_LOW();		// set SDA line to low
 
-void setSCL_HIGH();	// set SCL line to high
-void setSCL_LOW();	// set SCL line to low
+void setSCL_HIGH();		// set SCL line to high
+void setSCL_LOW();		// set SCL line to low
 
-void setPULLUP(true);	// set SDA line to input
-void setPULLUP(false);	// set both SDA & SCL to output (important to set both!)
+void setPULLUP(true);		// set SDA line to input
+void setPULLUP(false);		// set both SDA & SCL to output (important to set both!)
 
-bool getSDAValue();	// returns current value on SDA line
+bool getSDAValue();		// returns current value on SDA line
 
 void i2cbus_delay_us(int);	// call a delay function
 				//	@param Integer delay-time in ms
