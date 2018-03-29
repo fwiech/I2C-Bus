@@ -39,13 +39,13 @@ void setPULLUP(bool);
 bool getSDAValue();
 void i2cbus_delay_us(int);
 
-#define SDA_HIGH    setSDA_HIGH()
-#define SDA_LOW     setSDA_LOW()
+#define SDA_HIGH	setSDA_HIGH()
+#define SDA_LOW		setSDA_LOW()
 
-#define SCL_HIGH    setSCL_HIGH()
-#define SCL_LOW     setSCL_LOW()
+#define SCL_HIGH	setSCL_HIGH()
+#define SCL_LOW		setSCL_LOW()
 
-#define PULLUP_ON   setPULLUP(true)
+#define PULLUP_ON	setPULLUP(true)
 #define PULLUP_OFF	setPULLUP(false)
 
 #define READ_SDA_VALUE  getSDAValue()
