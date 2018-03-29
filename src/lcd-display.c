@@ -4,10 +4,10 @@
 bool lcd_display_write(int data_4bit, int register_select) {
 
 	// position data for transfer
-	//			    ligthning,					       write,		  register_select,		     data-bits
+	//		ligthning,	      write,	 register_select,	  data-bits
 	int data = (display_lighting << 7) | (0 << 5) | (register_select << 4) | (data_4bit & 0x0F);
 
-  bool result = true;
+	bool result = true;
 
 	if(lcd_display_send_byte(data | (1 << 6)) == false) {
 		 result = false;
@@ -20,9 +20,9 @@ bool lcd_display_write(int data_4bit, int register_select) {
 }
 
 bool lcd_display_init() {
-  display_lighting = 0;
+	display_lighting = 0;
 
-  // wait at least 15ms
+	// wait at least 15ms
 	DELAY_MS(15);
 
 	// interface set to 8-Bit
@@ -68,7 +68,7 @@ bool lcd_display_init() {
 
 bool lcd_display_send_character(char character, int row, int column) {
 
-  // set DDRAM
+	// set DDRAM
 	if(lcd_display_write((row * 4) + 4, 0) == false) return false;
 	if(lcd_display_write(column, 0) == false) return false;
 
@@ -89,8 +89,8 @@ bool lcd_display_send_character(char character, int row, int column) {
  * @param row: 1 -> first row, 2 -> second row
 */
 bool lcd_display_write_row(char text[], int row) {
-  int index;
-  for (index = 0; text[index] != '\0'; index++) {
+	int index;
+	for (index = 0; text[index] != '\0'; index++) {
 		if(lcd_display_send_character(text[index], row, index) == false) return false;
 	}
 
@@ -107,7 +107,7 @@ bool lcd_display_write_second_row(char text[]) {
 
 
 bool lcd_display_cursor_home() {
-  if(lcd_display_write(0b0000, 0) == false) return false;
+	if(lcd_display_write(0b0000, 0) == false) return false;
 	if(lcd_display_write(0b0010, 0) == false) return false;
 	return true;
 }
